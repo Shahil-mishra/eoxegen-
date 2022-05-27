@@ -44,7 +44,7 @@ const Login = props => {
       email: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values) => { 
       dispatch(loginUser(values, props.history));
     }
   });
@@ -182,12 +182,12 @@ const Login = props => {
                     </div>
 
                     <div className="mt-3 d-grid">
-                      <button
+                      <Link to="/dashboard"
                         className="btn btn-primary btn-block"
                         type="submit"
                       >
                         Log In
-                      </button>
+                      </Link>
                     </div>
 
 
@@ -204,44 +204,12 @@ const Login = props => {
                     <div className="mt-4 text-center">
                       <h5 className="font-size-14 mb-3">Sign in with</h5>
 
-                      <ul className="list-inline">
-                        <li className="list-inline-item">
-                          <FacebookLogin
-                            appId={facebook.APP_ID}
-                            autoLoad={false}
-                            callback={facebookResponse}
-                            render={renderProps => (
-                              <Link
-                                to="#"
-                                className="social-list-item bg-primary text-white border-primary"
-                                onClick={renderProps.onClick}
-                              >
-                                <i className="mdi mdi-facebook" />
-                              </Link>
-                            )}
-                          />
-                        </li>
-                        <li className="list-inline-item">
-                          <GoogleLogin
-                            clientId={google.CLIENT_ID}
-                            render={renderProps => (
-                              <Link
-                                to="#"
-                                className="social-list-item bg-danger text-white border-danger"
-                                onClick={renderProps.onClick}
-                              >
-                                <i className="mdi mdi-google" />
-                              </Link>
-                            )}
-                            onSuccess={googleResponse}
-                            onFailure={() => { }}
-                          />
-                        </li>
-                      </ul>
+                      
                     </div>
 
                     <p className="text-center mt-3">
-                      <span className="mr-25 font-small-1">By clicking here, you agree to our</span><a href=""><span className="font-small-5 text-underline">Customer Agreement</span></a></p>
+                      <span className="mr-25 font-small-1">By clicking here, you agree to our</span>
+                      <a href=""><span className="font-small-5 text-underline">Customer Agreement</span></a></p>
                   </Form>
                   {/* <div className="mt-5 text-center">
                     <p>
