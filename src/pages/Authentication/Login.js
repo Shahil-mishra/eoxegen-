@@ -182,12 +182,12 @@ const Login = props => {
                     </div>
 
                     <div className="mt-3 d-grid">
-                      <Link to="/dashboard"
+                      <button
                         className="btn btn-primary btn-block"
                         type="submit"
                       >
                         Log In
-                      </Link>
+                      </button>
                     </div>
 
 
