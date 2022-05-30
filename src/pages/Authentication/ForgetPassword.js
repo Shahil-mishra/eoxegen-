@@ -75,7 +75,7 @@ const ForgetPasswordPage = props => {
 
               <CardBody className="p-3 p-md-5 d-flex flex-column  justify-content-center">
                 <div className="text-primary ">
-                  <h5 className="card-title"> 12121 Forgot Password? 🔒</h5>
+                  <h5 className="card-title"> Forgot Password? 🔒</h5>
                   <p className="text-muted">Enter your email and well send you instructions to reset your password </p>
                 </div>
                 <div className="p-2">

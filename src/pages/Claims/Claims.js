@@ -169,9 +169,9 @@ const Claims = () => {
                         <CardBody>
                             <Row className="mb-3 row align-items-center">
                                 <Col md={6}><CardTitle>List of claims made</CardTitle></Col>
-                                <Col md={6} className="text-end">   <button type="button" className="btn btn-success">
+                                {/* <Col md={6} className="text-end">   <button type="button" className="btn btn-success">
                                     Add new claims
-                                </button></Col>
+                                </button></Col> */}
                             </Row>
                             <CardTitle>Search Filter </CardTitle>
                             <Row>
@@ -260,8 +260,7 @@ const Claims = () => {
                                     </ul>
                                 </SimpleBar>
 
-                            </> : null}
-
+                            </> : null} 
 
                     </ModalBody>
                     <ModalFooter>

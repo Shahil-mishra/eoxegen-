@@ -37,14 +37,14 @@ const Login = props => {
     enableReinitialize: true,
 
     initialValues: {
-      email: "admin@themesbrand.com" || '',
-      password: "123456" || '',
+      email: '',
+      password: '',
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
     }),
-    onSubmit: (values) => { 
+    onSubmit: (values) => {
       dispatch(loginUser(values, props.history));
     }
   });
@@ -116,8 +116,8 @@ const Login = props => {
 
               <CardBody className="p-3 p-md-5 d-flex flex-column  justify-content-center">
                 <div className="text-primary ">
-                  <h5 className="card-title">Welcome Back !</h5>
-                  <p className="text-muted">Please sign-in to your account and start the adventure</p>
+                  <h3 className="card-title-">Welcome to eOxegen</h3>
+                  <p className="text-muted">Please sign-in to your account</p>
                 </div>
                 <div className=" ">
                   <Form
@@ -175,8 +175,7 @@ const Login = props => {
                       />
                       <label
                         className="form-check-label"
-                        htmlFor="customControlInline"
-                      >
+                        htmlFor="customControlInline">
                         Remember me
                       </label>
                     </div>
@@ -204,11 +203,11 @@ const Login = props => {
                     <div className="mt-4 text-center">
                       <h5 className="font-size-14 mb-3">Sign in with</h5>
 
-                      
+
                     </div>
 
                     <p className="text-center mt-3">
-                      <span className="mr-25 font-small-1">By clicking here, you agree to our</span>
+                      <span className="mr-25 font-small-1">By clicking here, you agree to our </span>
                       <a href=""><span className="font-small-5 text-underline">Customer Agreement</span></a></p>
                   </Form>
                   {/* <div className="mt-5 text-center">

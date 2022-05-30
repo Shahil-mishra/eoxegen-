@@ -11,24 +11,24 @@ import {
 } 
     from "../../helpers/fakebackend_helper";
 
-// function* getSellingData({ payload: month }) {
-//     try {
-//         var response = yield call(topSellingDataApi, month);
-//         yield put(apiSuccess(GET_TOP_SELLING_PRODUCT, response));
-//     } catch (error) {
-//         yield put(apiFail(GET_TOP_SELLING_PRODUCT, error));
-//     }
-// }
+function* getSellingData({ payload: month }) {
+    try {
+        var response = yield call(topSellingDataApi, month);
+        yield put(apiSuccess(GET_TOP_SELLING_PRODUCT, response));
+    } catch (error) {
+        yield put(apiFail(GET_TOP_SELLING_PRODUCT, error));
+    }
+}
 
 
-// function* getEarningChartsData({ payload: month }) {
-//     try {
-//         var response = yield call(getEarningChartsDataApi, month);
-//         yield put(apiSuccess(GET_EARNING_DATA, response));
-//     } catch (error) {
-//         yield put(apiFail(GET_EARNING_DATA, error));
-//     }
-// }
+function* getEarningChartsData({ payload: month }) {
+    try {
+        var response = yield call(getEarningChartsDataApi, month);
+        yield put(apiSuccess(GET_EARNING_DATA, response));
+    } catch (error) {
+        yield put(apiFail(GET_EARNING_DATA, error));
+    }
+}
 
 export function* watchGetSellingdata() {
     yield takeEvery(GET_TOP_SELLING_PRODUCT, getSellingData);
