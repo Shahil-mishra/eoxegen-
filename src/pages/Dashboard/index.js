@@ -169,7 +169,7 @@ const Dashboard = props => {
         </MetaTags>
         <Container fluid>
           {/* Render Breadcrumb */}
-          <Breadcrumbs title="Dashboards" breadcrumbItem="Dashboard" />
+          <Breadcrumbs hideBreadcrum breadcrumbItem="Dashboard" />
           <Row>
             <Col md={3}>
               <Card>
@@ -193,7 +193,7 @@ const Dashboard = props => {
                 <CardBody>
                   <div className="d-flex">
                     <div className="flex-grow-1">
-                      <p className="text-muted fw-medium">Total Policy count<br /> with value </p>
+                      <p className="text-muted fw-medium">Total Policies count<br /> with value </p>
                       <h5 className="mb-0">20</h5>
                     </div>
                     <div className="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">

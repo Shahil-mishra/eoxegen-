@@ -87,7 +87,7 @@ const Customer = () => {
                 </MetaTags>
                 <Container fluid>
                     {/* Render Breadcrumb */}
-                    <Breadcrumbs title="Dashboard" breadcrumbItem="Customer" />
+                    <Breadcrumbs    breadcrumbItem="Customer" />
                     <Card>
                         <CardBody>
                             <CardTitle>Search Filter </CardTitle>

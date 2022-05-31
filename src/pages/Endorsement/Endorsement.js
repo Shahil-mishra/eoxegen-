@@ -27,7 +27,7 @@ const customer = [
     {
         endorsementno: "25225",
         customer: "Rahul Saxena",
-        policynumber: "256477895423",
+        Policiesnumber: "256477895423",
         reason: "Address Change",
         daterequest: "5/6/2020",
         type: "Financial",
@@ -52,7 +52,7 @@ const columns = [
         formatter: pageLink,
     },
     { dataField: 'customer', text: 'Customer' },
-    { dataField: 'policynumber', text: 'Policy number' },
+    { dataField: 'Policiesnumber', text: 'Policies number' },
     { dataField: 'reason', text: 'Reason' },
     { dataField: 'daterequest', text: 'Date of request' },
     { dataField: 'type', text: 'Endorsement type' },

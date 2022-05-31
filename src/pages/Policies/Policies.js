@@ -21,20 +21,20 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 
 
 const customer = [
-    { policyNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
-    { policyNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
-    { policyNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
-    { policyNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
-    { policyNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
+    { PoliciesNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
+    { PoliciesNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
+    { PoliciesNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
+    { PoliciesNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
+    { PoliciesNo: "Pol12121", type: "Health", name: "Aditi", code: "554545", startDate: "5/12/2020", endDate: "5/12/2020", premium: "2400", sumInsured: "2400", view: ""},
 ];
 
 const columns = [
-    { dataField: 'policyNo', text: 'Policy Number', sort: true },
-    { dataField: 'type', text: 'Policy type' },
+    { dataField: 'PoliciesNo', text: 'Policies Number', sort: true },
+    { dataField: 'type', text: 'Policies type' },
     { dataField: 'name', text: 'Customer name' },
     { dataField: 'code', text: 'Customer code ' },
-    { dataField: 'startDate', text: 'Policy start date' },
-    { dataField: 'endDate', text: 'Policy end date' },
+    { dataField: 'startDate', text: 'Policies start date' },
+    { dataField: 'endDate', text: 'Policies end date' },
     { dataField: 'premium', text: 'Premium', },
     { dataField: 'sumInsured', text: 'Sum insured', },
 
@@ -68,11 +68,11 @@ const Policies = () => {
         <React.Fragment>
             <div className="page-content">
                 <MetaTags>
-                    <title> Policy | eOxegen </title>
+                    <title> Policies | eOxegen </title>
                 </MetaTags>
                 <Container fluid>
                     {/* Render Breadcrumb */}
-                    <Breadcrumbs title="Dashboard" breadcrumbItem="policy" />
+                    <Breadcrumbs title="Dashboard" breadcrumbItem="Policies" />
                     <Card>
                         <CardBody>
                             <CardTitle>Search Filter </CardTitle>
@@ -80,7 +80,7 @@ const Policies = () => {
                             <Row>
                                 <Col md={4}>
                                     <div className="mb-3">
-                                        <Label htmlFor="">Policy  name</Label>
+                                        <Label htmlFor="">Policies  name</Label>
                                         <Input
                                             type="text"
                                             className="form-control"
@@ -91,7 +91,7 @@ const Policies = () => {
                                 </Col>
                                 <Col md={4}>
                                     <div className="mb-3">
-                                        <Label htmlFor="">Policy  name</Label>
+                                        <Label htmlFor="">Policies  name</Label>
                                         <Input
                                             type="text"
                                             className="form-control"
@@ -116,7 +116,7 @@ const Policies = () => {
                     <Card>
                         <CardBody>
                             <Row className="mb-3 row align-items-center">
-                                <Col md={6}><CardTitle>List of policy sold</CardTitle></Col>
+                                <Col md={6}><CardTitle>List of Policies sold</CardTitle></Col>
 
                             </Row>
 

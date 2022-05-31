@@ -32,7 +32,7 @@ const barchart = () => {
         "Contact Update",
         "Member Update",
         "Team Update",
-        "Policy Update", 
+        "Policies Update", 
       ],
     },
   }

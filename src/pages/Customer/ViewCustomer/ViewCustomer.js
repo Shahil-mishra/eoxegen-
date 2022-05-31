@@ -15,11 +15,13 @@ import {
     Table,
     CardTitle,
     InputGroup,
+    BreadcrumbItem,
 } from "reactstrap";
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import "flatpickr/dist/themes/material_blue.css";
 import Flatpickr from "react-flatpickr";
+import { Link } from "react-router-dom";
 
 
 const AddCustomer = () => {
@@ -122,7 +124,7 @@ const AddCustomer = () => {
         );
     }
 
- 
+
     return (
         <React.Fragment>
             <div className="page-content">
@@ -131,7 +133,10 @@ const AddCustomer = () => {
                 </MetaTags>
                 <Container fluid>
                     {/* Render Breadcrumb */}
-                    <Breadcrumbs title="Dashboard" breadcrumbItem="Customer" />
+
+                    <Breadcrumbs child titleLink="/customer" title="Customer" breadcrumbItem="view" />
+                  
+
                     <Row>
                         <Col md={7} lg={7} xl={9}>
                             <Card>
@@ -228,7 +233,7 @@ const AddCustomer = () => {
                                 <CardBody>
 
                                     <CardTitle className="d-flex justify-content-between align-items-start mb-1">
-                                        <span>Current Policy</span>
+                                        <span>Current policies</span>
                                         <span className="mt-1 badge rounded-pill bg-success">INR 5 Lakh</span>
                                     </CardTitle>
                                     <h6 className="text-muted card-subtitle">Family Floater Plan</h6>
@@ -239,8 +244,8 @@ const AddCustomer = () => {
                                         <li><span className="align-middle">Family Members -4</span></li>
                                     </ul>
                                     <div className="d-flex flex-wrap gap-1 mt-2">
-                                        <button type="button" className="btn btn-sm  btn-primary w-xs ">Upgrade Plan</button>
-                                        <button type="button" className="btn btn-sm  btn-warning w-xs ">Share Policy</button>
+                                        {/* <button type="button" className="btn btn-sm  btn-primary w-xs ">Upgrade Plan</button> */}
+                                        <button type="button" className="btn btn-sm  btn-warning w-xs ">Share Policies</button>
                                     </div>
 
                                 </CardBody>

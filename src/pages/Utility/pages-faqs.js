@@ -55,7 +55,7 @@ const PagesFaqs = () => {
                       }}
                     >
                       <i className="bx bx-check-shield d-block check-nav-icon mt-4 mb-2" />
-                      <p className="font-weight-bold mb-4">Privacy Policy</p>
+                      <p className="font-weight-bold mb-4">Privacy Policies</p>
                     </NavLink>
                   </NavItem>
                   <NavItem>
@@ -154,7 +154,7 @@ const PagesFaqs = () => {
                         </div>
                       </TabPane>
                       <TabPane tabId="2">
-                        <CardTitle className="mb-5">Privacy Policy</CardTitle>
+                        <CardTitle className="mb-5">Privacy Policies</CardTitle>
 
                         <div className="faq-box d-flex mb-4">
                           <div className="flex-shrink-0 me-3 faq-icon">

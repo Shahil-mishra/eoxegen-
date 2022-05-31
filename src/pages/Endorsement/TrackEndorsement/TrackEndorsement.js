@@ -45,7 +45,7 @@ const TrackEndorsement = () => {
                 </MetaTags>
                 <Container fluid>
                     {/* Render Breadcrumb */}
-                    <Breadcrumbs title="Dashboard" breadcrumbItem="Customer" />
+                    <Breadcrumbs child titleLink="/endorsement" title="Endorsement" breadcrumbItem="Track Endorsement" />
                     <Row>
                         <Col md={6}>
                             <Card>
@@ -54,11 +54,11 @@ const TrackEndorsement = () => {
 
                                     <div className="row pt-1" >
                                         <div className="col mb-2">
-                                            <label className="mb-0">Policy Holder Name</label>
+                                            <label className="mb-0">Policies Holder Name</label>
                                             <div className="text-black-50">Rahul Saxena </div>
                                         </div>
                                         <div className="col mb-2">
-                                            <label className="mb-0">Policy No.</label>
+                                            <label className="mb-0">Policies No.</label>
                                             <div className="text-black-50">E01356352657 </div>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@ const TrackEndorsement = () => {
                                             </div>
                                         </li>
                                     </ul>
-                                    
+
                                 </CardBody>
                             </Card>
                         </Col>
