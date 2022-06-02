@@ -33,28 +33,31 @@ const Claims = () => {
 
     const notofications = [
         {
-            date: "15 Mar",
+            date: "13 Mar",
+            title: "Form Submitted",
             desc: "If several languages coalesce of the resulting.",
         },
         {
             date: "14 Mar",
-            desc: "New common language will be more simple and regular than the existing.",
+            title: "Received to Insurance comapny",
+            desc: "Lorem Ipsum is simply dummy text of the printing",
         },
         {
-            date: "13 Mar",
-            desc: "It will seem like simplified English as a skeptical Cambridge.",
-        },
-        { date: "13 Mar", desc: "To achieve this, it would be necessary." },
-        { date: "12 Mar", desc: "Cum sociis natoque penatibus et magnis dis." },
-        {
-            date: "11 Mar",
-            desc: "New common language will be more simple and regular than the existing.",
+            date: "16 Mar",
+            title: "Reviewing",
+            desc: "Lorem Ipsum is simply dummy text of the printing",
         },
         {
-            date: "10 Mar",
-            desc: "It will seem like simplified English as a skeptical Cambridge.",
+            date: "19 Mar",
+            title: "Document Analysis",
+            desc: "Lorem Ipsum is simply dummy text of the printing",
         },
-        { date: "9 Mar", desc: "To achieve this, it would be necessary." },
+        {
+            date: "22 Mar",
+            title: "Decision Pending",
+            desc: "Lorem Ipsum is simply dummy text of the printing",
+        },
+
     ]
     const openModal = (name, title) => {
         setmodalOpen({ 'selectedModel': name, 'modaltitle': title })
@@ -69,11 +72,11 @@ const Claims = () => {
             lossdate: "5/12/2020",
             currentstatus: "",
             lastupdatedon: "5/12/2020",
-            log: "",
+            // log: "",
             state: "Punjab",
             since: "5/12/2020",
             total: 124,
-            
+
         },
 
     ];
@@ -89,30 +92,30 @@ const Claims = () => {
             formatter: statusFormatter,
         },
         { dataField: 'lastupdatedon', text: 'Last updated on' },
-        {
-            dataField: 'log',
-            text: 'Log ',
-            formatter: logFormatter,
-            headerAttrs: { width: 50 },
-            attrs: { width: 50, class: "EditRow" }
-        },
+        // {
+        //     dataField: 'log',
+        //     text: 'Log ',
+        //     formatter: logFormatter,
+        //     headerAttrs: { width: 50 },
+        //     attrs: { width: 50, class: "EditRow" }
+        // },
 
-        
+
 
     ];
-    function logFormatter(cell, row, rowIndex, formatExtraData) {
-        return (
-            < div style={{
-                textAlign: "center",
-                cursor: "pointer",
-                lineHeight: "normal"
-            }}>
-                <button type="button" className="fs-3 btn btn-link btn-sm p-0 shadow-none">
-                    <i className="bx bx-detail"></i>
-                </button>
-            </div>
-        );
-    }
+    // function logFormatter(cell, row, rowIndex, formatExtraData) {
+    //     return (
+    //         < div style={{
+    //             textAlign: "center",
+    //             cursor: "pointer",
+    //             lineHeight: "normal"
+    //         }}>
+    //             <button type="button" className="fs-3 btn btn-link btn-sm p-0 shadow-none">
+    //                 <i className="bx bx-detail"></i>
+    //             </button>
+    //         </div>
+    //     );
+    // }
 
     function rankFormatter(cell, row, rowIndex, formatExtraData) {
         return (
@@ -236,7 +239,7 @@ const Claims = () => {
                     </ModalHeader>
                     <ModalBody>
                         {modalOpen.selectedModel == "claimStatus" ?
-                            <> 
+                            <>
                                 <SimpleBar style={{ maxHeight: "310px" }}>
                                     <ul className="verti-timeline list-unstyled">
                                         {notofications.map((notification, key) => (
@@ -247,11 +250,12 @@ const Claims = () => {
                                                 <div className="d-flex">
                                                     <div className="me-3">
                                                         <h5 className="font-size-14">
-                                                            {notification.date} 
+                                                            {notification.date}
                                                             <i className="bx bx-right-arrow-alt font-size-16 text-primary align-middle ms-2" />
                                                         </h5>
                                                     </div>
                                                     <div className="flex-grow-1">
+                                                        <strong>{notification.title}</strong>
                                                         <div>{notification.desc}</div>
                                                     </div>
                                                 </div>
@@ -260,15 +264,17 @@ const Claims = () => {
                                     </ul>
                                 </SimpleBar>
 
-                            </> : null} 
+                            </> : null}
 
                     </ModalBody>
-                    <ModalFooter>
-                        <Button type="button" color="danger" onClick={() => { setmodal(!modal); }} >
-                            Cancel
-                        </Button>
-                        {/* <Button type="button" color="success">Save</Button> */}
-                    </ModalFooter>
+                    {modalOpen.selectedModel == "claimStatus" ? null :
+                        <ModalFooter>
+                            <Button type="button" color="danger" onClick={() => { setmodal(!modal); }} >
+                                Cancel
+                            </Button>
+                            {/* <Button type="button" color="success">Save</Button> */}
+                        </ModalFooter>
+                    }
                 </div>
             </Modal>
         </React.Fragment>

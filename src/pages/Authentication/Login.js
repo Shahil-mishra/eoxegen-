@@ -110,6 +110,7 @@ const Login = props => {
                 <img className="img-fluid" src={loginBackground} alt="Login V2" />
               </div>
             </div>
+            <div className="h6 p-3">Intermediary Portal</div>
           </Col>
           <Col md={6} lg={4} >
             <Card className="overflow-hidden mb-0  h-100  ">

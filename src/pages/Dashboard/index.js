@@ -15,7 +15,7 @@ import {
   Table,
   CardTitle,
 } from "reactstrap";
-
+import SimpleBar from "simplebar-react"
 import { Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table"
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
 import { Link } from "react-router-dom";
@@ -42,8 +42,40 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Dashboard = props => {
   const [modal, setmodal] = useState(false);
-  const [subscribemodal, setSubscribemodal] = useState(false);
+  const [modalOpen, setmodalOpen] = useState({
+    selectedModel: '',
+    modaltitle: '',
+  });
+  const [periodData, setPeriodData] = useState([]);
+  const [periodType, setPeriodType] = useState("yearly");
+  const notofications = [
+    {
+      date: "13 Mar",
+      title: "Form Submitted",
+      desc: "If several languages coalesce of the resulting.",
+    },
+    {
+      date: "14 Mar",
+      title: "Received to Insurance comapny",
+      desc: "Lorem Ipsum is simply dummy text of the printing",
+    },
+    {
+      date: "16 Mar",
+      title: "Reviewing",
+      desc: "Lorem Ipsum is simply dummy text of the printing",
+    },
+    {
+      date: "19 Mar",
+      title: "Document Analysis",
+      desc: "Lorem Ipsum is simply dummy text of the printing",
+    },
+    {
+      date: "22 Mar",
+      title: "Decision Pending",
+      desc: "Lorem Ipsum is simply dummy text of the printing",
+    },
 
+  ]
   const { chartsData } = useSelector(state => ({
     chartsData: state.Dashboard.chartsData
   }));
@@ -137,15 +169,12 @@ const Dashboard = props => {
     { claim: "1222656", reason: "any reason", date: "24 jan 2021", lossDate: "24 jan 2021", status: "in process", lastUpdate: "25 Apr 2022" },
     { claim: "1222656", reason: "any reason", date: "24 jan 2021", lossDate: "24 jan 2021", status: "completed", lastUpdate: "25 Apr 2022" },
   ]
+  const openModal = (name, title) => {
+    setmodalOpen({ 'selectedModel': name, 'modaltitle': title })
+    setmodal(!modal)
+  }
 
-  useEffect(() => {
-    setTimeout(() => {
-      setSubscribemodal(true);
-    }, 2000);
-  }, []);
 
-  const [periodData, setPeriodData] = useState([]);
-  const [periodType, setPeriodType] = useState("yearly");
 
   useEffect(() => {
     setPeriodData(chartsData);
@@ -291,7 +320,7 @@ const Dashboard = props => {
                       {endorsementRequest.map((data, indx) => {
                         return <>
                           <Tr key={indx}>
-                            <td> {data.endorsement}</td>
+                            <td><Link to="/endorsement/track">{data.endorsement}</Link></td>
                             <td>{data.reason}</td>
                             <td>{data.date}</td>
                             <td>{data.type}</td>
@@ -302,9 +331,9 @@ const Dashboard = props => {
 
                             </td>
                             <td>{data.lastUpdate}</td>
-                            <td> <button type="button" className="btn btn-success btn-sm">
+                            {/* <td> <button type="button" className="btn btn-success btn-sm">
                               <i className="fas fa-eye"></i>
-                            </button></td>
+                            </button></td> */}
 
                           </Tr>
                         </>
@@ -336,7 +365,7 @@ const Dashboard = props => {
                         <Th data-priority="1">Loss date</Th>
                         <Th data-priority="3">Current status</Th>
                         <Th data-priority="3">Last updated on </Th>
-                        <Th data-priority="6">Log </Th>
+                        {/* <Th data-priority="6">Log </Th> */}
                       </Tr>
                     </Thead>
                     <Tbody>
@@ -344,7 +373,11 @@ const Dashboard = props => {
                         return (
 
                           <Tr key={indx}>
-                            <td>{data.claim}</td>
+                            <td>
+                              <button type="button" className="btn btn-link" onClick={() => openModal("claimStatus", "Claim Status")}>
+                                {data.claim}
+                              </button>
+                            </td>
                             <td>{data.reason}</td>
                             <td>{data.date}</td>
                             <td>{data.lossDate}</td>
@@ -354,9 +387,9 @@ const Dashboard = props => {
                               </span>
                             </td>
                             <td>{data.lastUpdate}</td>
-                            <td> <button type="button" className="btn btn-success btn-sm">
+                            {/* <td> <button type="button" className="btn btn-success btn-sm">
                               <i className="fas fa-eye"></i>
-                            </button></td>
+                            </button></td> */}
                           </Tr>
                         )
                       })}
@@ -375,7 +408,7 @@ const Dashboard = props => {
         role="dialog"
         autoFocus={true}
         centered={true}
-        className="exampleModal"
+        className="modal-lg"
         tabIndex="-1"
         toggle={() => {
           setmodal(!modal);
@@ -387,91 +420,46 @@ const Dashboard = props => {
               setmodal(!modal);
             }}
           >
-            Order Details
+            {modalOpen.modaltitle}
           </ModalHeader>
           <ModalBody>
-            <p className="mb-2">
-              Product id: <span className="text-primary">#SK2540</span>
-            </p>
-            <p className="mb-4">
-              Billing Name: <span className="text-primary">Neal Matthews</span>
-            </p>
+            {modalOpen.selectedModel == "claimStatus" ?
+              <>
+                <SimpleBar style={{ maxHeight: "310px" }}>
+                  <ul className="verti-timeline list-unstyled">
+                    {notofications.map((notification, key) => (
+                      <li key={key} className="event-list">
+                        <div className="event-timeline-dot">
+                          <i className="bx bx-right-arrow-circle font-size-18" />
+                        </div>
+                        <div className="d-flex">
+                          <div className="me-3">
+                            <h5 className="font-size-14">
+                              {notification.date}
+                              <i className="bx bx-right-arrow-alt font-size-16 text-primary align-middle ms-2" />
+                            </h5>
+                          </div>
+                          <div className="flex-grow-1">
+                            <strong>{notification.title}</strong>
+                            <div>{notification.desc}</div>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </SimpleBar>
 
-            <div className="table-responsive">
-              <Table className="table table-centered table-nowrap">
-                <thead>
-                  <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <div>
-                        <img src={modalimage1} alt="" className="avatar-sm" />
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                        <h5 className="text-truncate font-size-14">
-                          Wireless Headphone (Black)
-                        </h5>
-                        <p className="text-muted mb-0">$ 225 x 1</p>
-                      </div>
-                    </td>
-                    <td>$ 255</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div>
-                        <img src={modalimage2} alt="" className="avatar-sm" />
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                        <h5 className="text-truncate font-size-14">
-                          Hoodie (Blue)
-                        </h5>
-                        <p className="text-muted mb-0">$ 145 x 1</p>
-                      </div>
-                    </td>
-                    <td>$ 145</td>
-                  </tr>
-                  <tr>
-                    <td colSpan="2">
-                      <h6 className="m-0 text-end">Sub Total:</h6>
-                    </td>
-                    <td>$ 400</td>
-                  </tr>
-                  <tr>
-                    <td colSpan="2">
-                      <h6 className="m-0 text-end">Shipping:</h6>
-                    </td>
-                    <td>Free</td>
-                  </tr>
-                  <tr>
-                    <td colSpan="2">
-                      <h6 className="m-0 text-end">Total:</h6>
-                    </td>
-                    <td>$ 400</td>
-                  </tr>
-                </tbody>
-              </Table>
-            </div>
+              </> : null}
+
           </ModalBody>
-          <ModalFooter>
-            <Button
-              type="button"
-              color="secondary"
-              onClick={() => {
-                setmodal(!modal);
-              }}
-            >
-              Close
-            </Button>
-          </ModalFooter>
+          {modalOpen.selectedModel == "claimStatus" ? null :
+            <ModalFooter>
+              <Button type="button" color="danger" onClick={() => { setmodal(!modal); }} >
+                Cancel
+              </Button>
+              {/* <Button type="button" color="success">Save</Button> */}
+            </ModalFooter>
+          }
         </div>
       </Modal>
     </React.Fragment>
