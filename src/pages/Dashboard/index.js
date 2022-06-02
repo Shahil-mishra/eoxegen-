@@ -313,7 +313,7 @@ const Dashboard = props => {
                         <Th data-priority="1">Endorsement type </Th>
                         <Th data-priority="3">Current Status</Th>
                         <Th data-priority="3">Last updates on</Th>
-                        <Th data-priority="6">Log </Th>
+                        {/* <Th data-priority="6">Log </Th> */}
                       </Tr>
                     </Thead>
                     <Tbody>
